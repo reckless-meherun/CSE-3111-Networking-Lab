@@ -1,7 +1,7 @@
 import socket
 
-HOST = '172.29.96.128'
-PORT = 9005
+HOST = '10.33.3.9'
+PORT = 9004
 client_socket: socket.socket
 
 def client_init():
