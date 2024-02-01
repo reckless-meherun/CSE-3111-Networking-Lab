@@ -1,12 +1,12 @@
 users = [
     {
-        'name':'jamal',
-        'pass':'1234',
-        'balance': 30000
+    'name': 'jamal',
+    'pass': '12345',
+    'balance': 50000 
     },
     {
-        'name':'Meherun',
-        'pass':'2345',
-        'balance': 20000
+    'name': 'meherun',
+    'pass': '12443',
+    'balance': 10000 
     }
 ]
