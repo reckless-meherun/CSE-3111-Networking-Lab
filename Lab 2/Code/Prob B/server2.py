@@ -141,7 +141,10 @@ def withdraw(logged_user):
         }
         message = pickle.dumps(data)
         conn.send(message)
+        stat = conn.recv(1024).decode()
+        print(f'stat = {stat}')
         return
+    
 
     elif float(withdrawal_amount)>logged_user['balance']:
         data = {
@@ -150,6 +153,8 @@ def withdraw(logged_user):
         }
         message = pickle.dumps(data)
         conn.send(message)
+        stat = conn.recv(1024).decode()
+        print(f'stat = {stat}')
         return
     
 

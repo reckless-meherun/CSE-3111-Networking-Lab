@@ -177,9 +177,11 @@ def withdrawal(client_socket):
         client_socket.send('WITHDRAW_RECV'.encode())
         if response['status'] == 'ERROR' and response['message'] == 'INVALID_IN':
             print('Not a valid input. Try again.')
+            # client_socket.send('INVALID_IN'.encode())
             return
         elif response['status'] == 'ERROR' and response['message'] == 'NO_BLNC':
             print('Insufficient balance. Try again. ')
+            # client_socket.send('NO_BLNC'.encode())
             return
     print(response)
     withdraw=response['withdraw']
