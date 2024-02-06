@@ -1,15 +1,14 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.25)  26 JAN 2024 20:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.24)  1 FEB 2024 19:20
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/Telegram Downloads/Lab/Lab/05_07_Experiment1.tex"
-(d:/Telegram Downloads/Lab/Lab/05_07_Experiment1.tex
+**./05_07_Experiment1.tex
+(05_07_Experiment1.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
-(D:\Softwares\MikTex\tex/latex/base\article.cls
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(D:\Softwares\MikTex\tex/latex/base\size11.clo
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
 File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count187
@@ -23,35 +22,45 @@ File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (D:\Softwares\MikTex\tex/latex/graphics\graphicx.sty
+)
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (D:\Softwares\MikTex\tex/latex/graphics\keyval.sty
+
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
-) (D:\Softwares\MikTex\tex/latex/graphics\graphics.sty
+)
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (D:\Softwares\MikTex\tex/latex/graphics\trig.sty
+
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (D:\Softwares\MikTex\tex/latex/graphics-cfg\graphics.cfg
+)
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (D:\Softwares\MikTex\tex/latex/graphics-def\pdftex.def
+
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
-) (D:\Softwares\MikTex\tex/latex/url\url.sty
+) (C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (D:\Softwares\MikTex\tex/latex/float\float.sty
+)
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count195
 \float@exts=\toks18
 \float@box=\box51
 \@float@everytoks=\toks19
 \@floatcapt=\box52
-) (D:\Softwares\MikTex\tex/latex/l3backend\l3backend-pdftex.def
+)
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count196
 \l__pdf_internal_box=\box53
@@ -76,7 +85,9 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
- (D:\Softwares\MikTex\tex/context/base/mkii\supp-pdf.mkii
+
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count197
 \scratchdimen=\dimen143
@@ -89,10 +100,15 @@ LaTeX Font Info:    ... okay on input line 7.
 \MPnumerator=\count267
 \makeMPintoPDFobject=\count268
 \everyMPtoPDFconversion=\toks21
-) (D:\Softwares\MikTex\tex/latex/epstopdf-pkg\epstopdf-base.sty
+)
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (D:\Softwares\MikTex\tex/latex/00miktex\epstopdf-sys.cfg
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\meher\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 <res/du.png, id=1, 808.01875pt x 1027.84pt>
@@ -102,14 +118,17 @@ Package pdftex.def Info: res/du.png  used on input line 11.
 (pdftex.def)             Requested size: 80.80661pt x 102.79001pt.
  [1
 
-{C:/Users/hp/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./res/du.png>] [1]
+{C:/Users/meher/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./res/du.png
+>] [1]
 Overfull \hbox (15.47874pt too wide) in paragraph at lines 59--60
-[]\OT1/cmr/bx/n/10.95 ARP: \OT1/cmr/m/n/10.95 ARP, which stands for Ad-dress Res-o-lu-tion Pro-to-col, is a command-
+[]\OT1/cmr/bx/n/10.95 ARP: \OT1/cmr/m/n/10.95 ARP, which stands for Ad-dress Re
+s-o-lu-tion Pro-to-col, is a command-
  []
 
 
 Overfull \hbox (2.47572pt too wide) in paragraph at lines 72--73
-\OT1/cmr/m/n/10.95 To get in-sights re-gard-ing net-work-ing re-sources, we went into dif-fer-ent sources,
+\OT1/cmr/m/n/10.95 To get in-sights re-gard-ing net-work-ing re-sources, we wen
+t into dif-fer-ent sources,
  []
 
 <res/ping 1.png, id=17, 817.25325pt x 587.19376pt>
@@ -154,7 +173,8 @@ File: res/traceroute 6.png Graphic file (type png)
 <use res/traceroute 6.png>
 Package pdftex.def Info: res/traceroute 6.png  used on input line 125.
 (pdftex.def)             Requested size: 360.0pt x 119.67789pt.
- [4 <./res/traceroute 1.png> <./res/traceroute 2.png> <./res/traceroute 3.png> <./res/traceroute 4.png>]
+ [4 <./res/traceroute 1.png> <./res/traceroute 2.png> <./res/traceroute 3.png> 
+<./res/traceroute 4.png>]
 <res/traceroute 7.png, id=42, 1048.51724pt x 91.542pt>
 File: res/traceroute 7.png Graphic file (type png)
 <use res/traceroute 7.png>
@@ -175,7 +195,8 @@ File: res/traceroute 10.png Graphic file (type png)
 <use res/traceroute 10.png>
 Package pdftex.def Info: res/traceroute 10.png  used on input line 141.
 (pdftex.def)             Requested size: 360.0pt x 81.55692pt.
- [5 <./res/traceroute 5.png> <./res/traceroute 6.png> <./res/traceroute 7.png> <./res/traceroute 8.png> <./res/traceroute 9.png>]
+ [5 <./res/traceroute 5.png> <./res/traceroute 6.png> <./res/traceroute 7.png> 
+<./res/traceroute 8.png> <./res/traceroute 9.png>]
 <res/ifconfig 1.png, id=54, 624.53325pt x 361.35pt>
 File: res/ifconfig 1.png Graphic file (type png)
 <use res/ifconfig 1.png>
@@ -323,7 +344,9 @@ File: res/netstat 14.png Graphic file (type png)
 <use res/netstat 14.png>
 Package pdftex.def Info: res/netstat 14.png  used on input line 321.
 (pdftex.def)             Requested size: 360.0pt x 300.88213pt.
- [18 <./res/netstat 11.png> <./res/netstat 12.png>] [19 <./res/netstat 13.png>] [20 <./res/netstat 14.png>]
+
+[18 <./res/netstat 11.png> <./res/netstat 12.png>] [19 <./res/netstat 13.png>]
+[20 <./res/netstat 14.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 339.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -332,62 +355,74 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 339.
 
 Underfull \hbox (badness 10000) in paragraph at lines 335--340
-[]\OT1/cmr/m/n/10.95 PING: $\OT1/cmtt/m/n/10.95 https : / / pimylifeup . com / ubuntu-[]ping / # : [] : text =
+[]\OT1/cmr/m/n/10.95 PING: $\OT1/cmtt/m/n/10.95 https : / / pimylifeup . com / 
+ubuntu-[]ping / # : [] : text =
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 335--340
-\OT1/cmtt/m/n/10.95 Example % 20of % 20Limiting % 20the % 20Number % 20of % 20pings %
+\OT1/cmtt/m/n/10.95 Example % 20of % 20Limiting % 20the % 20Number % 20of % 20p
+ings %
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 335--340
-\OT1/cmtt/m/n/10.95 20on % 20Ubuntu & amp ; text = To % 20achieve % 20this % 2C % 20we % 20use ,[]
+\OT1/cmtt/m/n/10.95 20on % 20Ubuntu & amp ; text = To % 20achieve % 20this % 2C
+ % 20we % 20use ,[]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 335--340
-\OT1/cmtt/m/n/10.95 the % 20destination % 20for % 20our % 20pings . &amp ; text = After %
+\OT1/cmtt/m/n/10.95 the % 20destination % 20for % 20our % 20pings . &amp ; text
+ = After %
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 335--340
-\OT1/cmtt/m/n/10.95 20running % 20this % 20command % 2C % 20your ,[] to % 20stop % 20the %
+\OT1/cmtt/m/n/10.95 20running % 20this % 20command % 2C % 20your ,[] to % 20sto
+p % 20the %
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 340--341
-[]\OT1/cmr/m/n/10.95 TRACEROUTE: $\OT1/cmtt/m/n/10.95 https : / / cloudinfrastructureservices . co . uk /
+[]\OT1/cmr/m/n/10.95 TRACEROUTE: $\OT1/cmtt/m/n/10.95 https : / / cloudinfrastr
+uctureservices . co . uk /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 341--342
-[]\OT1/cmr/m/n/10.95 IFCONFIG: $\OT1/cmtt/m/n/10.95 https : / / www . tecmint . com /
+[]\OT1/cmr/m/n/10.95 IFCONFIG: $\OT1/cmtt/m/n/10.95 https : / / www . tecmint .
+ com /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 342--343
-[]\OT1/cmr/m/n/10.95 ARP: $\OT1/cmtt/m/n/10.95 https : / / www . geeksforgeeks . org /
+[]\OT1/cmr/m/n/10.95 ARP: $\OT1/cmtt/m/n/10.95 https : / / www . geeksforgeeks 
+. org /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 344--345
-[]\OT1/cmr/m/n/10.95 NSLOOKUP: $\OT1/cmtt/m/n/10.95 https : / / www . geeksforgeeks . org /
+[]\OT1/cmr/m/n/10.95 NSLOOKUP: $\OT1/cmtt/m/n/10.95 https : / / www . geeksforg
+eeks . org /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 345--346
-[]\OT1/cmr/m/n/10.95 NETSTAT: $\OT1/cmtt/m/n/10.95 https : / / www . geeksforgeeks . org /
+[]\OT1/cmr/m/n/10.95 NETSTAT: $\OT1/cmtt/m/n/10.95 https : / / www . geeksforge
+eks . org /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 346--347
-[]\OT1/cmr/m/n/10.95 NSLOOKUP: $\OT1/cmtt/m/n/10.95 https : / / www . geeksforgeeks . org /
+[]\OT1/cmr/m/n/10.95 NSLOOKUP: $\OT1/cmtt/m/n/10.95 https : / / www . geeksforg
+eeks . org /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 347--348
-[]\OT1/cmr/m/n/10.95 MindMajix: $\OT1/cmtt/m/n/10.95 https : / / mindmajix . com /
+[]\OT1/cmr/m/n/10.95 MindMajix: $\OT1/cmtt/m/n/10.95 https : / / mindmajix . co
+m /
  []
 
 [21] (05_07_Experiment1.aux)
@@ -401,14 +436,22 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1773 strings out of 474486
- 30765 string characters out of 5755489
+ 1771 strings out of 474486
+ 31784 string characters out of 5743755
  1933542 words of memory out of 5000000
  24083 multiletter control sequences out of 15000+600000
  563781 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,777b,338s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\hp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><D:/Softwares/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Softwares/MikTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Softwares/MikTex/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:/Softwares/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Softwares/MikTex/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Softwares/MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/Softwares/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+ 57i,7n,65p,747b,338s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\meher\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1095.pk><C:/Users/meher/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Users/meher/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/meher/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/meher/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/meher/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/meher/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/meher/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
 Output written on 05_07_Experiment1.pdf (22 pages, 16596397 bytes).
 PDF statistics:
  194 PDF objects out of 1000 (max. 8388607)
