@@ -25,7 +25,7 @@ GET/POST requests \\[8pt]
             Name: Mohd. Jamal Uddin Mallick\\[8pt]
             Roll No : 07\\[12pt]
             \textbf{Submitted On : \\[12pt]}
-            February 1, 2024\\[20pt]
+            February 8, 2024\\[20pt]
             \textbf{Submitted To :\\[12pt]}
             Dr. Md. Abdur Razzaque\\[12pt]
             Dr. Md. Mamun Or Rashid\\[12pt]
@@ -54,12 +54,12 @@ Socket programming is the foundation of network communication, facilitating the 
 
 \subsection{Server}
 The server is initialized on a specific port and it listens for incoming requests. Whenever a client requests to connect, the server accepts the connection and provides necessary services.\\
-In case of sockets, the server lets the client choose whether they want to get the list of available files, upload or download a file. 
+In case of sockets, the server lets the client choose whether they want to get the list of available files, upload or download a file. The server can handle any type of file including text, audio, image, video etc. of all formats.\\
+In case of HTTP, the server is an HTTP server, serving GET and POST requests from clients.
 
 \subsection{Client}
-Here our client side is any web browser. We will enter IP address of our server and the port number. Then an HTTP request will be sent from our browser to the server. 
-
-We will see links to some files that the server provided. If we click any of them we can download them in our pc.
+The client side is a program requesting service from the server. It tries to connect to the server address mentioning the particular port on which the server is serving. When the server accepts the connection, it is provided with the options of service the client can avail. The client selects whether they want to see the list of available files, upload or download a file.\\
+In case of HTTP, the client can make a \emph{GET} request to the server for a specific resource and avail it. Also it can make a \emph{POST} request for uploading new files into the server.
 
 \section{Experimental result}
 
@@ -80,14 +80,14 @@ Some Snapshots of the Client Side queries can be seen in the following figures:
 \newpage
 \section{Experience}
 \begin{enumerate}
-\item We had to see some examples of how to use HttpServer package in Java
-\item We used html tags for the first time to create the links.
+\item We had to learn how to enable the server to handle multiple client at once.
+\item We had to see some examples of how to use HttpServer package in Python
 \end{enumerate}
 
-\begin{thebibliography}{1}
-\bibitem{book}  Computer networking : a top-down approach 6th ed.
-\bibitem{StackOverflow} StackOverflow : \url{http://stackoverflow.com/}
-\bibitem{W3School} HTML Codes : \url{http://www.w3schools.com/}
-\end{thebibliography}
+
+\bibliographystyle{plain}
+\bibliography{ref} % Assuming your BibTeX file is named "ref.bib"
+\nocite{*}
+
 
 \end{document}
