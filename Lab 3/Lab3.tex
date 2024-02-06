@@ -40,30 +40,69 @@ File transfer is a critical aspect of modern networking applications, facilitati
 
 \subsection{Objectives}
 \begin{itemize}
-    \item Develop a file transfer mechanism using socket programming to establish communication between client and server applications.
-    \item Implement HTTP GET and POST requests to facilitate file retrieval and submission over the network.
-    \item Evaluate the performance and scalability of the implemented file transfer system under varying network conditions and file sizes.
+    \item \textbf{Socket Programming: } Develop a file transfer mechanism using socket programming to establish communication between client and server applications.
+    \item \textbf{HTTP GET/POST Requests} Implement HTTP GET and POST requests to facilitate file retrieval and submission over the network.
 \end{itemize}
 %%%%
 %%%%
 \section{Theory}
-Socket programming is the foundation of network communication, facilitating the establishment of connections between client and server applications for data exchange. HTTP (Hypertext Transfer Protocol) serves as the backbone of web communication, enabling clients to request resources from servers using methods such as GET and POST. In file transfer implementations, socket programming enables connection setup and data transmission, while HTTP requests facilitate resource retrieval (GET) and data submission (POST) between client and server. Combining these techniques provides a robust framework for efficient and standardized file transfer over networks.
-
+\subsection{File Transfer via Socket:}
+Socket programming is the foundation of network communication, facilitating the establishment of connections between client and server applications for data exchange. File transfer via sockets refers to the process of transferring a file from one system to another over
+a network connection using socket programming. File transfer via sockets offers more control over the transfer process compared to higher-level
+protocols like HTTP, butalso requires manual handling of error handling, data chunking, and other
+aspects of the transfer.
+\subsection{File Transder via HTTP}
+HTTP (Hypertext Transfer Protocol) serves as the backbone of web communication, enabling clients to request resources from servers using methods such as GET and POST. HTTP is a standard protocol
+for transmitting data over the web, and is widely used for web communication between a client
+(e.g. a web browser) and a server (e.g. a web server).
+In file transfer via HTTP, the client sends a request to the server using either an HTTP GET
+or POST request. Overall, file transfer via HTTP is a simple
+and convenient way to transfer files over a network, but may not be as fast or efficient as other
+methods, such as socket programming.
 
 \section{Methodology}
 
 \subsection{Server}
 The server is initialized on a specific port and it listens for incoming requests. Whenever a client requests to connect, the server accepts the connection and provides necessary services.\\
-In case of sockets, the server lets the client choose whether they want to get the list of available files, upload or download a file. The server can handle any type of file including text, audio, image, video etc. of all formats.\\
-In case of HTTP, the server is an HTTP server, serving GET and POST requests from clients.
+\subsubsection{File Transfer via Socket}
+In case of sockets, the server lets the client choose whether they want to get the list of available files, upload or download a file. The server can handle any type of file including text, audio, image, video etc. of all formats.
+\subsubsection{File Transfer via HTTP}
+In case of HTTP, the server is an HTTP server, serving GET and POST requests from clients. The client receives a response from the server indicating the success or failure
+of the transfer.
+
 
 \subsection{Client}
-The client side is a program requesting service from the server. It tries to connect to the server address mentioning the particular port on which the server is serving. When the server accepts the connection, it is provided with the options of service the client can avail. The client selects whether they want to see the list of available files, upload or download a file.\\
+\subsubsection{File Transfer via Socket}
+The client side is a program requesting service from the server. It tries to connect to the server address mentioning the particular port on which the server is serving. When the server accepts the connection, it is provided with the options of service the client can avail. The client selects whether they want to see the list of available files, upload or download a file.
+\subsubsection{File Transfer via HTTP}
 In case of HTTP, the client can make a \emph{GET} request to the server for a specific resource and avail it. Also it can make a \emph{POST} request for uploading new files into the server.
 
 \section{Experimental result}
 
-Some Snapshots of the Client Side queries can be seen in the following figures: 
+Some Snapshots of the Client Side queries can be seen in the following figures:
+
+\subsection{Task 1: File Transfer via Socket Programming}
+\subsubsection{Server:}
+Server creates a socket and binds it to one of its ports. And it starts listening to incoming requests. When a client connection arrives, it accepts the connection and serves accordingly.
+\subsubsection{Client: }
+The client requests to connect to the server in the mentioned port. After being accepted, the client is asked what request they want to make. The client sends the request using TCP protocol and waits to receive a response.
+\subsection{Task 2: File Transfer via HTTP}
+\subsubsection{Server:}
+HTTP file transfer server works by receiving file requests from clients, sending an HTTP response
+message with the requested file, and providing the necessary information for the client to properly
+display or handle the file.When a client requests a file from the server, the server sends an HTTP
+response message that includes the requested file. The response message has a status code, headers,
+and an optional message body that contains the file data. The headers contain information about
+the file such as its size, type, and encoding.
+
+\subsubsection{Client: }
+The client side in an HTTP communication refers to the entity that initiates the request for data
+from the server. The client can be a web browser, a mobile app, or any other software that needs to
+retrieve data from an HTTP server. On the client side, an HTTP request message is generated and
+sent to the server. This message includes information such as the URL of the requested resource,
+the HTTP method (e.g. GET or POST), and any necessary data or headers.In conclusion, the client
+side in an HTTP communication is responsible for initiating requests to the server, processing the
+response from the server, and rendering or further processing the data as necessary.
 \begin{figure}[!h]
 \centering
 % \includegraphics[width=\textwidth]{Request.JPG}
