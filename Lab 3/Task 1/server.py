@@ -25,7 +25,11 @@ def list(conn):
     print('List')
     file_list = os.listdir('./server_files')
     print(file_list)
-    response = '\n'.join(file_list)
+    if len(file_list)==0:
+        response = 'No files available.'
+    else:   
+        response = '\n'.join(file_list)
+    
     conn.send(response.encode())
 
 def upload(conn):
@@ -88,19 +92,23 @@ def handle_client(conn,addr):
     1. List
     2. Upload
     3. Download'''
-    while True:
-        conn.send(options.encode())
-        selected = conn.recv(1024).decode()
-        print(selected)
+    try:
+        while True:
+            conn.send(options.encode())
+            selected = conn.recv(1024).decode()
+            print(selected)
 
-        match selected:
-            case '1':
-                list(conn)
-            case '2':
-                upload(conn)
-            case '3':
-                download(conn)
+            match selected:
+                case '1':
+                    list(conn)
+                case '2':
+                    upload(conn)
+                case '3':
+                    download(conn)
+    except ConnectionAbortedError:
+        print(f'{addr} disconnected.')
                 # conn.recv(1024)
+    
 
 
 
