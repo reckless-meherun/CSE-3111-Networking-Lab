@@ -1,6 +1,7 @@
 import socket
 import os
 import funcs
+import time
 import sys
 
 HOST = socket.gethostbyname(socket.gethostname())
@@ -8,7 +9,7 @@ PORT = 9999
 ADDR = (HOST, PORT)
 SIZE = 1024
 
-FILENAME = 'file_sent.txt'
+FILENAME = 'Lab_Report_4.pdf'
 
 seq = 0
 ack = 0
@@ -66,6 +67,7 @@ def handle_client(conn:socket.socket, addr):
         while True:
             data = file.read(SIZE)
             if not data:
+                # conn.send(funcs.create_tcp_packet(PORT,PORT,0,0,WINDOW_SIZE,'EOF',0))
                 break
 
             ack = seq+len(data)
@@ -87,7 +89,6 @@ def handle_client(conn:socket.socket, addr):
                 WINDOW_SIZE = 3072
                 # packets_before_ack = WINDOW_SIZE//SIZE
     print('Done sending file')
-    conn.send(funcs.create_tcp_packet(PORT,PORT,0,0,WINDOW_SIZE,'EOF',0))
 
     response = conn.recv(SIZE)
     response = funcs.decode_tcp_packet(response)
