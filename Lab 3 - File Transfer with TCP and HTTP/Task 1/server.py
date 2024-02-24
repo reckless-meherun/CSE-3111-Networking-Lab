@@ -3,11 +3,8 @@ import threading
 import pickle
 import os
 
-
 HOST = socket.gethostbyname(socket.gethostname())
 PORT = 9090
-
-
 
 def server_init():
     server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)

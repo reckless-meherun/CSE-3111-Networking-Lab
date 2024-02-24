@@ -108,7 +108,5 @@ def client_init():
                     download(sock)
     except KeyboardInterrupt:
         print('Disconnected')
-
-    
-
+  
 client_init()
