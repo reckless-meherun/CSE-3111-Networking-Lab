@@ -33,7 +33,6 @@ def handle_client(dns_message,local_addr,server:socket.socket):
     server.sendto(response,local_addr)
 
 
-
 def root_server():
     server = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
     server.bind(addresses.ROOT_ADDR)
