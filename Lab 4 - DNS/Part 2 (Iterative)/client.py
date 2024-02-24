@@ -5,6 +5,7 @@ import addresses
 
 def client_init():
     client_sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+    # client_sock.sendto(b'',addresses.LOCAL_ADDR)
 
     while True:
 

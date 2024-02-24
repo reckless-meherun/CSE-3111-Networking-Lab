@@ -2,6 +2,12 @@ import socket
 import addresses
 import pickle
 import funcs
+import threading
+import socket
+import addresses
+import pickle
+import funcs
+import threading
 
 dic={
     # "www.google.com":('100.20.8.1','A',86400),
@@ -40,7 +46,7 @@ def handle_client(dns_message,client_addr,server:socket.socket):
         print(response)
         
         #checking local cache
-        if response[1] == 'A':
+        if response[1] == type:
             response = funcs.build_response(name,response,id)
             server.sendto(response,client_addr)
             return
@@ -54,7 +60,7 @@ def handle_client(dns_message,client_addr,server:socket.socket):
 
             print(response)
 
-            if response['body'][2] == 'A':
+            if response['body'][2] == type:
                 if response['body'][1:] != (None,None,None):
                     print('Adding to cache')
                     dic[response['body'][0]] = response['body'][1],response['body'][2],response['body'][3]
@@ -76,19 +82,24 @@ def handle_client(dns_message,client_addr,server:socket.socket):
         return
 
     response_type = response['body'][2]
+    if response_type == type:
+        response = pickle.dumps(response)
+        server.sendto(response,client_addr)
+        return
         
     port = int(response['body'][1])
 
-    while response_type != 'A':
+    while response_type != type:
 
         response = ask_someone(dns_message,port,server,client_addr)
 
-        if response['body'][2] == 'A':
+        if response['body'][2] == type:
             response = pickle.dumps(response)
             server.sendto(response,client_addr)
             return
         
         port = int(response['body'][1])
+
 
 
 def local_server():
@@ -101,6 +112,7 @@ def local_server():
         query = funcs.extract_query(query)
         print(f'Recv from client {query}')
 
+        
         handle_client(query,addr,server)
 
 

@@ -63,7 +63,7 @@ def handle_client(dns_message, client_addr, server: socket.socket):
         print(response)
 
         # checking local cache
-        if response[1] == 'A':
+        if response[1] == type:
             response = funcs.build_response(name, response, id)
             server.sendto(response, client_addr)
             return

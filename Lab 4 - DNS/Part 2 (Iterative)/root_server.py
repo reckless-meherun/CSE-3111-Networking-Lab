@@ -5,6 +5,7 @@ import funcs
 
 dic={
     # "www.google.com":('100.20.8.1','A',86400),
+    "www.alu.com": ('9993','NS',86400),
     "www.google.com":('9993','NS',86400),
     "www.cse.du.ac.bd": ('192.0.2.3','A',86400),
     "www.yahoo.com":('4488',"NS",86400)

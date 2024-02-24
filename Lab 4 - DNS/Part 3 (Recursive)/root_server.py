@@ -7,6 +7,7 @@ import threading
 
 dic = {
     # "www.google.com":('100.20.8.1','A',86400),
+    'www.alu.com': ('9993','NS',86400),
     "www.google.com": ('9993', 'NS', 86400),
     "www.cse.du.ac.bd": ('192.0.2.3', 'A', 86400),
     "www.yahoo.com": ('9993', "NS", 86400)
@@ -58,7 +59,7 @@ def handle_client(dns_message, local_addr, server: socket.socket):
     if name in dic.keys():
         response = dic[name]
 
-        if response[1] == 'A':
+        if response[1] == type:
             response = funcs.build_response(name, response, id)
             server.sendto(response, local_addr)
             return

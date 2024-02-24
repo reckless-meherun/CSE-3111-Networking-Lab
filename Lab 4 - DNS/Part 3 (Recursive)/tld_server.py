@@ -57,7 +57,7 @@ def handle_client(dns_message, root_addr, server: socket.socket):
     if name in dic.keys():
         response = dic[name]
 
-        if response[1] == 'A':
+        if response[1] == type:
             response = funcs.build_response(name, response, id)
             server.sendto(response, root_addr)
             return
