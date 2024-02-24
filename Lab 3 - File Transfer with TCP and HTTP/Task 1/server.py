@@ -105,7 +105,7 @@ def handle_client(conn,addr):
                     upload(conn)
                 case '3':
                     download(conn)
-    except ConnectionAbortedError:
+    except (ConnectionAbortedError,ConnectionResetError):
         print(f'{addr} disconnected.')
                 # conn.recv(1024)
     

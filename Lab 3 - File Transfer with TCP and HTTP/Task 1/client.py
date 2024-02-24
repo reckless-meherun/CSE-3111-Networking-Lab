@@ -38,7 +38,20 @@ def upload(sock):
     response = pickle.dumps(response)
     sock.send(f'{len(response)}'.encode())
     sock.recv(1024).decode()
-    sock.send(response)
+
+
+    total_size = len(response)
+
+    with tqdm.tqdm(total=total_size,unit='B',unit_scale=True,unit_divisor=1024) as progress:
+        sent_len = 0
+        chunk_size = 4096
+
+        while sent_len < total_size:
+            chunk = response[sent_len:sent_len+chunk_size]
+            sent_len += len(chunk)
+            sock.send(chunk)
+            progress.update(len(chunk))
+
 
     if success: print(f'Uploaded {filepath}')
     else: print('Try again.')
