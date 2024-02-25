@@ -8,6 +8,7 @@ import addresses
 import pickle
 import funcs
 import threading
+import time
 
 dic={
     # "www.google.com":('100.20.8.1','A',86400),
@@ -112,8 +113,11 @@ def local_server():
         query = funcs.extract_query(query)
         print(f'Recv from client {query}')
 
-        
+        start_time = time.time()
         handle_client(query,addr,server)
+        end_time = time.time()
+        
+        print("Total time to get a response : " + str((end_time - start_time)*10e3) + " ms")
 
 
 if __name__=='__main__':

@@ -82,11 +82,6 @@ def handle_client(dns_message, client_addr, server: socket.socket):
             response = pickle.dumps(response)
             server.sendto(response, client_addr) # sending the final ans to client
             return
-        
-            # if response['body'][2] == 'A':
-            #     response = pickle.dumps(response)
-            #     server.sendto(response, client_addr)
-            #     return
 
     else:
         response = ask_someone(dns_message, addresses.ROOT_PORT, server)
@@ -96,21 +91,6 @@ def handle_client(dns_message, client_addr, server: socket.socket):
         response = pickle.dumps(response)
         server.sendto(response, client_addr)
         return
-
-    # response_type = response['body'][2]
-
-    # port = int(response['body'][1])
-
-    # while response_type != 'A':
-
-    #     response = ask_someone(dns_message, port, server)
-
-    #     if response['body'][2] == 'A':
-    #         response = pickle.dumps(response)
-    #         server.sendto(response, client_addr)
-    #         return
-
-    #     port = int(response['body'][1])
 
 
 def local_server():

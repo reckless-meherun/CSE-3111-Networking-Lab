@@ -9,24 +9,24 @@ PORT = 12349
 
 def list(self):
     self.send_response(200)
-    self.send_header('Content-type', 'application/json')
+    self.send_header('Content-type', 'application/json') # response er content type
     self.end_headers()
     files = os.listdir(filepath)
     print(files)
-    self.wfile.write(json.dumps(files).encode())
+    self.wfile.write(json.dumps(files).encode()) 
 
-def download(self):
+def download(self): # client download korche
     filename = self.path[10:]
     try:
         self.send_response(200)
-        self.send_header('Content-type', 'application/octet-stream')
+        self.send_header('Content-type', 'application/octet-stream') # unknown type file
         self.end_headers()
         with open(os.path.join('files', filename), 'rb') as file:
-            self.wfile.write(file.read())
+            self.wfile.write(file.read()) # nije packet banai nibe and send kore dibe
     except FileNotFoundError:
         self.send_error(404, "Sorry! Did not find the file!")
 
-def upload(self):
+def upload(self): # client upload korche
     filename = self.path[8:]
     content_length = int(self.headers['Content-Length'])
     file_content = self.rfile.read(content_length)
@@ -38,7 +38,7 @@ def upload(self):
     self.end_headers()
     self.wfile.write(b'Successfully uploaded the file!')
     
-class FileHandler(http.server.SimpleHTTPRequestHandler):
+class FileHandler(http.server.SimpleHTTPRequestHandler): # inhereting class of http server in python
     def do_GET(self):        
         if self.path == '/list':
             list(self)            
@@ -52,8 +52,8 @@ class FileHandler(http.server.SimpleHTTPRequestHandler):
             upload(self)
 
 if __name__ == "__main__":
-    os.makedirs('files', exist_ok=True)
-    handler = FileHandler
+    os.makedirs('files', exist_ok=True) # downloadable files
+    handler = FileHandler # the object of a class
     
     with socketserver.TCPServer(("", PORT), handler) as httpd:
         print(f"Hello client!")

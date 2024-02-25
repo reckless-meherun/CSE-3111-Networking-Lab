@@ -1,6 +1,6 @@
 import requests
 import os
-
+import time 
 
 server_url = 'http://172.29.96.128:12349'
 
@@ -14,6 +14,7 @@ while True:
     print(options)
 
     selected_operation = input()   
+    start_time = time.time()
     
     match selected_operation:
         case '1': #list
@@ -38,6 +39,9 @@ while True:
                 print('Successfully downloaded the file!')
             else:
                 print('Sorry! Failed to download file!')
+    
+    end_time = time.time()
+    print("Total time : " + str((end_time - start_time)))
  
             
 
