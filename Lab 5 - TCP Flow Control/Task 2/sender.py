@@ -75,7 +75,7 @@ with open(FILENAME,'rb') as file:
         
         print(f'Size of payload: {len(payload)}')
         send_seq = rcv_ack
-        send_ack = rcv_seq+len(rcv_payload)
+        send_ack = rcv_seq+1
         pkt = packet.make_pkt(PORT,dest_port,send_seq,send_ack,rcv_window,payload,1)
         send_buffer[send_seq] = pkt
         client_sock.send(pkt)
@@ -89,6 +89,10 @@ with open(FILENAME,'rb') as file:
         except socket.timeout:
             print('No ACK withing 5 secs')
             break
+            # client_sock.send(pkt)
+            # print(f'Retransmitted packet')
+
+            
 
         if ack_segment:
             ack_pkt = packet.extract(ack_segment)
@@ -97,7 +101,7 @@ with open(FILENAME,'rb') as file:
             rcv_ack = ack_pkt['ack_num']
             rcv_window = ack_pkt['window']
 
-            if rcv_ack == send_seq+rcv_window:
+            if rcv_ack == send_seq+len(payload):
                 print(f'Received ACK {rcv_ack}')
                 send_buffer.pop(send_seq)
                 window = ack_pkt['window']

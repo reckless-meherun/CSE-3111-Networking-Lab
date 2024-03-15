@@ -2,7 +2,7 @@ import requests
 import os
 
 
-server_url = 'http://172.29.96.128:12349'
+server_url = 'http://localhost:12349'
 
 while True:
     options = '''Select one :
@@ -15,6 +15,7 @@ while True:
 
     selected_operation = input()   
     
+    
     match selected_operation:
         case '1': #list
             response = requests.get(f'{server_url}/list')
@@ -24,10 +25,14 @@ while True:
                 print(file)
                 
         case '2': #upload
-            filename = input('Enter the filename: ')        
-            with open(filename, 'rb') as file:
-                response = requests.post(f'{server_url}/upload/{filename}', data=file)
-            print(response.text)
+            filename = input('Enter the filename: ')   
+            try:     
+                with open(filename, 'rb') as file:
+                    response = requests.post(f'{server_url}/upload/{filename}', data=file)
+                print(response.text)
+            except FileNotFoundError:
+                print('File not found')
+
 
         case '3': # download
             filename = input('Enter the filename: ')

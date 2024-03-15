@@ -18,7 +18,7 @@ print(f'Connected to {HOST}:{PORT}')
 
 
 rcv_window = 1400
-rcv_ack = 1400
+rcv_ack = 0
 rcv_seq = 0
 
 pkt = packet.make_pkt(0,PORT,rcv_seq,rcv_ack,rcv_window,'',0)
@@ -44,7 +44,7 @@ with open(FILENAME,'wb') as file:
             print(f'Payload: {len(pkt["payload"])}')
 
             if send_seq == rcv_ack:
-                rcv_ack += len(pkt['payload'])
+                rcv_ack = pkt['seq_num']+len(pkt['payload'])
                 print(f'Updated ack to {rcv_ack}')
                 file.write(pkt['payload'])
                 print(f'Received {send_seq} and wrote to file')
@@ -72,6 +72,6 @@ end = time.time()
 print(f'Time taken: {end-start} secs')
 file_size = os.path.getsize(FILENAME)
 print(f'File size: {file_size} bytes')
-print(f'Throughput: {file_size/(end-start)} bytes/sec')
+# print(f'Throughput: {file_size/(end-start)} bytes/sec')
 client_sock.close()
 print('Connection closed')
