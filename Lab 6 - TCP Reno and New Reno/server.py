@@ -6,13 +6,13 @@ import packet
 
 
 cwnd = 1
-ssthresh = 16
+ssthresh = 400
 dup_ack = 0
 last_ack = -1
 last_seq = -1
 timeout = 5
 
-FILENAME = 'tcp_flow.png'
+FILENAME = 'alu.pdf'
 
 
 def congestion_avoidance(curr_cwnd):
@@ -22,7 +22,9 @@ def slow_start(curr_cwnd):
     return curr_cwnd * 2
 
 def fast_recovery(curr_cwnd):
-    return curr_cwnd // 2 + 3
+    global ssthresh
+    ssthresh = curr_cwnd//2
+    return ssthresh + 3
 
 
 HOST = socket.gethostbyname(socket.gethostname())
@@ -38,8 +40,15 @@ print(f'Listening on {HOST}:{PORT}')
 
 client_sock,addr = server.accept()
 client_sock.settimeout(5)
+dest_port = addr[1]
+
+pkt = client_sock.recv(1589)
+data = packet.extract(pkt)
+# print(data)
+rwnd = data['window']
+recv_ack = data['seq_num']+1
+
 window_size = 1460
-rwnd = 5
 mss = 1460
 
 seq = 0
@@ -47,9 +56,12 @@ ack = 0
 
 with open(FILENAME,'rb') as file:
     file_size = os.path.getsize('file_to_send.txt')
+    send_seq=0
 
+
+    last_send_time = time.time()
     while True:
-        curr_sent = 0
+        curr_sent = 0   
         max_cap = min(rwnd,cwnd)
         print(f"Max cap: {max_cap}")
 
@@ -57,13 +69,14 @@ with open(FILENAME,'rb') as file:
             data = file.read(mss)
             if not data:
                 break
-            pkt = packet.make_pkt(12345,12345,curr_sent,0,window_size,data,1)
+            # print(f'curr_sent: {curr_sent}')
+            print(len(data))
+            pkt = packet.make_pkt(PORT,dest_port,seq,recv_ack,window_size,data,1)
             client_sock.send(pkt)
-            curr_sent += 1
-            ack += len(data)
-            seq += len(data)
+            curr_sent += len(data)
+            seq+=len(data)
+            print(f'curr_sent: {curr_sent}')
 
-            last_send_time = time.time()
         print(f'curr_sent: {curr_sent}')
 
 
@@ -74,8 +87,9 @@ with open(FILENAME,'rb') as file:
             break
         if ack_pkt:
             ack_pkt = packet.extract(ack_pkt)
+            recv_ack = ack_pkt['seq_num']+1
             print(f'ack_pkt: {ack_pkt}')
-            if ack_pkt['ack_num'] == ack:
+            if recv_ack == ack:
                 dup_ack = 0
                 print('Received correct ack')
                 if cwnd < ssthresh:

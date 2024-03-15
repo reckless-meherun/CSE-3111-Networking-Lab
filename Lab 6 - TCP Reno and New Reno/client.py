@@ -2,7 +2,7 @@ import socket
 import time
 import packet
 
-FILENAME = 'recv.png'
+FILENAME = 'balu.pdf'
 
 mss = 1460
 header_size = 129
@@ -18,6 +18,11 @@ client.settimeout(5)
 buffer = b''
 max_buff_size = 1460*50
 curr_buff_size = 0
+seq=0
+ack=0
+
+pkt = packet.make_pkt(PORT,PORT,seq,ack,max_buff_size,b'',0)
+client.send(pkt)
 
 last_rcv = -1
 
@@ -35,10 +40,13 @@ try:
                 break
                 
             data = packet.extract(pkt)
+            # print(data)
             buffer += data['payload']
             curr_buff_size += len(data['payload'])
             last_rcv = data['seq_num']
             print(f'last_rcv: {last_rcv}')
+            seq+=1
+            ack+=len(data['payload'])
             
 
             rwnd = (max_buff_size - curr_buff_size)//mss
