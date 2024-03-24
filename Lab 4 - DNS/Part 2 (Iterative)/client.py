@@ -18,8 +18,8 @@ def client_init():
         # print(response)
         # print(response['body'][1])
 
-        if response['body'][1] is not None:
-            print(f'Value= {response['body'][1]}')
+        if response["body"][1] is not None:
+            print(f'Value= {response["body"][1]}')
         else: print('Value not available')
 
 
