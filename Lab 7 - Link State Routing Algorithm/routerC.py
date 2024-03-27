@@ -3,22 +3,29 @@ import funcs
 import addresses
 import threading
 import graph
+import os
 
-ADDR = addresses.address['C']
+node = os.path.basename(__file__).split('.')[0][-1]
 
-adj = funcs.get_adj('C')
+
+ADDR = addresses.address[node]
+
+adj = funcs.get_adj(node)
+print(adj)
 
 messages_received = set()
 
-neighbors = ['A']
+neighbors = [vertex for vertex in adj[node].keys()]
+print(neighbors)
 
 message_serial = 1
 
 def send_msg():
     global message_serial
-    message = funcs.encode_message('C',message_serial,adj)
+    message = funcs.encode_message(node,message_serial,adj)
     message_serial+=1
     funcs.broadcast(message,neighbors)
+
 
 
 
@@ -36,7 +43,7 @@ def main():
 
     while True:
         client_sock,addr = router_sock.accept()
-        flood_receive_thread = threading.Thread(target=funcs.handle_client,args=(client_sock,addr,adj,messages_received,'C',neighbors))
+        flood_receive_thread = threading.Thread(target=funcs.handle_client,args=(client_sock,adj,messages_received,node,neighbors))
         flood_receive_thread.start()
 
 if __name__=='__main__':

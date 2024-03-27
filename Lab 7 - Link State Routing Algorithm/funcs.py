@@ -15,23 +15,26 @@ def broadcast(message:bytes,neighbors: list[str]):
             print(f'Message failed to be sent to {neighbor}')
 
 
-def encode_message(router_id:str,serial:int,adj:dict[str,dict[str,int]]) -> bytes:
-    return f'{router_id}{serial}@{json.dumps(adj)}'.encode()
+def encode_message(router_id:str,serial:int,adj:dict[str,dict[str,int]],ttl=32) -> bytes:
+    return json.dumps({
+        'id':f'{router_id}{serial}',
+        'ttl':ttl,
+        'data':adj
 
-def decode_message(message:bytes,received_messages:set[str]):
+    }).encode()
+
+def decode_message(message:bytes):
     data = message.decode()
-    id,data = data.split('@')
 
-    
     # received_messages.add(id)
-    return id,json.loads(data)
+    return json.loads(data)
 
 
-def handle_client(client_sock:socket.socket,addr,adj,messages_received,source,neighbors):
+def handle_client(client_sock:socket.socket,adj,messages_received,source,neighbors):
     packet = client_sock.recv(1024)
-    id,data = decode_message(packet,messages_received)
-    if data:
-        for src,links in data.items():
+    packet = decode_message(packet)
+    if packet:
+        for src,links in packet['data'].items():
             if src not in adj.keys():
                 adj[src]={}
             for dest,weight in links.items():
@@ -40,9 +43,12 @@ def handle_client(client_sock:socket.socket,addr,adj,messages_received,source,ne
                 adj[src][dest]=weight
                 adj[dest][src]=weight
     print(adj)
-    if id not in messages_received:
-        messages_received.add(id)
-        broadcast(packet,neighbors)
+    print(packet['ttl'])
+    packet['ttl']-=1
+    send_packet = encode_message(packet['id'][0],int(packet['id'][1:]),packet['data'],packet['ttl'])
+    if packet['id'] not in messages_received and packet['ttl']>0:
+        messages_received.add(packet['id'])
+        broadcast(send_packet,neighbors)
     distances,parents = dijkstra(adj,source)
     print_all_shortest_paths(distances,parents,source)
 
@@ -73,7 +79,7 @@ def dijkstra(graph, start):
             distance = current_distance + weight
 
             # If the distance is less than the currently stored distance, update the distance and add the node to the queue
-            if distance < distances[neighbor]:
+            if distances.get(neighbor) and distance < distances[neighbor]:
                 distances[neighbor] = distance
                 parents[neighbor] = current_node
                 heapq.heappush(queue, (distance, neighbor))
@@ -88,7 +94,9 @@ def shortest_path(parents, start, target):
     return path
 
 def print_all_shortest_paths(distances, parents, start):
-    for target in distances:
+    print('Printing shortest paths')
+    print(graph.adj.keys())
+    for target in graph.adj.keys():
         path = shortest_path(parents, start, target)
         print(f"Shortest path from {start} to {target}: {path} with distance {distances[target]}")
     
