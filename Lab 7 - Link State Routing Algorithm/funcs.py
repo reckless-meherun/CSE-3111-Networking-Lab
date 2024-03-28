@@ -58,6 +58,7 @@ def handle_client(client_sock:socket.socket,adj,messages_received,source,neighbo
 
 
 def dijkstra(graph, start):
+    start_time = time.time() * 1000
     # Initialize the distance dictionary with infinite distances for all nodes except the start node
     distances = {node: float('infinity') for node in graph}
     distances[start] = 0
@@ -86,6 +87,10 @@ def dijkstra(graph, start):
                 parents[neighbor] = current_node
                 heapq.heappush(queue, (distance, neighbor))
 
+    end_time = time.time() * 1000
+    total_time = end_time - start_time
+    print(f"Dijkstra Running Time: {total_time} ms")
+    
     return distances, parents
 
 def shortest_path(parents, start, target):
