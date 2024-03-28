@@ -30,17 +30,16 @@ def send_msg():
     
     
 def updateLinkWeight():
-    print("Boardcast starting")
+    global adj,neighbors,message_serial
+    print("Broadcast starting")
     while True:
-        time.sleep(40)
-        # dest = neighbors[random.randint(0,len(neighbors)-1)]
-        # adj[node][dest]=random.randint(1,10)
-        # message = funcs.encode_message(node,message_serial,adj)
-        # message_serial+=1
-        # edge = adj[node][dest]
-        # new_link_weight = {node, dest, edge}
-        # funcs.broadcast(message,neighbors)   
-        print("Boardcast done")
+        time.sleep(30)
+        dest = neighbors[random.randint(0,len(neighbors)-1)]
+        adj[node][dest]=random.randint(1,10)
+        print(f'Edge {node} {dest} changed to {adj[node][dest]}')
+        message = funcs.encode_message(node,message_serial,adj)
+        message_serial+=1
+        funcs.broadcast(message,neighbors)   
          
 
 def main():

@@ -90,7 +90,7 @@ def dijkstra(graph, start):
 
 def shortest_path(parents, start, target):
     path = [target]
-    while path[-1] != start:
+    while parents.get(path[-1]) is not None and path[-1] != start:
         path.append(parents[path[-1]])
     path.reverse()
     return path
@@ -100,7 +100,7 @@ def print_all_shortest_paths(distances, parents, start):
     print(graph.adj.keys())
     for target in graph.adj.keys():
         path = shortest_path(parents, start, target)
-        print(f"Shortest path from {start} to {target}: {path} with distance {distances[target]}")
+        print(f"Shortest path from {start} to {target}: {path} with distance {distances.get(target)}")
     
 
 def get_adj(router_id):
