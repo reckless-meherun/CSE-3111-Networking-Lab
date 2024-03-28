@@ -3,6 +3,8 @@ import socket
 import json
 import heapq
 import graph
+import time
+import random
 
 def broadcast(message:bytes,neighbors: list[str]):
     for neighbor in neighbors:
@@ -108,3 +110,8 @@ def get_adj(router_id):
         }
     return None
 
+
+        
+        
+
+        
