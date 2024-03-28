@@ -50,7 +50,7 @@ server.listen()
 print(f'Listening on {HOST}:{PORT}')
 
 client_sock, addr = server.accept()
-client_sock.settimeout(5)
+client_sock.settimeout(0.5)
 dest_port = addr[1]
 
 pkt = client_sock.recv(1589)
@@ -97,12 +97,15 @@ with open(FILENAME, 'rb') as file:
         try:
             ack_pkt = client_sock.recv(1589)
         except socket.timeout:
-            print('No ack received in 5 seconds')
-            break
+            print('No ack received in 1 seconds')
+            print('Back to slow start')
+            ssthresh = cwnd//2
+            cwnd = 1
+            continue
         if ack_pkt:
             ack_pkt = packet.extract(ack_pkt)
             ack = ack_pkt['ack_num']
-            # print(f'ack_pkt: {ack_pkt}')
+            print(f'Expecting {seq} got ack_pkt: {ack}')
             if seq == ack:
                 CWND_ARRAY.append(cwnd)
                 print(f"CWND appended to Array: {cwnd}")
@@ -142,17 +145,17 @@ client_sock.close()
 server.close()
 
 
-reno_cwnd = np.array([1, 2, 4, 8, 4, 8, 16, 8, 16, 32])
-reno_time = np.arange(len(reno_cwnd))
+# reno_cwnd = np.array([1, 2, 4, 8, 4, 8, 16, 8, 16, 32])
+# reno_time = np.arange(len(reno_cwnd))
 
-plt.plot(reno_time, reno_cwnd, label='TCP Reno')
+# plt.plot(reno_time, reno_cwnd, label='TCP Reno')
 
-# Labels and title
-plt.xlabel('Time')
-plt.ylabel('Congestion Window Size')
-plt.title('CWND vs Time (TCP Reno vs. New Reno)')
-plt.legend()
+# # Labels and title
+# plt.xlabel('Time')
+# plt.ylabel('Congestion Window Size')
+# plt.title('CWND vs Time (TCP Reno vs. New Reno)')
+# plt.legend()
 
-# Show the plot
-plt.grid(True)
-plt.show()
+# # Show the plot
+# plt.grid(True)
+# plt.show()

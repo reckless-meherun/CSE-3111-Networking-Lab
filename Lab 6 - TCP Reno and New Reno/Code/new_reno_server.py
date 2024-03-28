@@ -48,7 +48,7 @@ server.listen()
 print(f'Listening on {HOST}:{PORT}')
 
 client_sock, addr = server.accept()
-client_sock.settimeout(5)
+client_sock.settimeout(0.5)
 dest_port = addr[1]
 
 pkt = client_sock.recv(1589)
@@ -99,8 +99,11 @@ with open(FILENAME, 'rb') as file:
         try:
             ack_pkt = client_sock.recv(1589)
         except socket.timeout:
-            print('No ack received in 5 seconds')
-            break
+            print('No ack received in 1 seconds')
+            print('Back to slow start')
+            ssthresh = cwnd//2
+            cwnd = 1
+            continue
         if ack_pkt:
             ack_pkt = packet.extract(ack_pkt)
             recv_ack = ack_pkt['seq_num']+1
@@ -151,24 +154,24 @@ client_sock.close()
 server.close()
 
 
-# Simulate a sawtooth pattern for Reno's CWND
-reno_cwnd = np.array([1, 2, 4, 8, 4, 8, 16, 8, 16, 32])
-reno_time = np.arange(len(reno_cwnd))
+# # Simulate a sawtooth pattern for Reno's CWND
+# reno_cwnd = np.array([1, 2, 4, 8, 4, 8, 16, 8, 16, 32])
+# reno_time = np.arange(len(reno_cwnd))
 
-# Simulate a smoother curve for New Reno's CWND with "recover" point
-new_reno_cwnd = np.array([1, 2, 4, 8, 6, 10, 16, 12, 18, 32])
-new_reno_time = np.arange(len(new_reno_cwnd))
+# # Simulate a smoother curve for New Reno's CWND with "recover" point
+# new_reno_cwnd = np.array([1, 2, 4, 8, 6, 10, 16, 12, 18, 32])
+# new_reno_time = np.arange(len(new_reno_cwnd))
 
-# Plot CWND vs Time for Reno and New Reno
-plt.plot(reno_time, reno_cwnd, label='TCP Reno')
-plt.plot(new_reno_time, new_reno_cwnd, label='TCP New Reno')
+# # Plot CWND vs Time for Reno and New Reno
+# plt.plot(reno_time, reno_cwnd, label='TCP Reno')
+# plt.plot(new_reno_time, new_reno_cwnd, label='TCP New Reno')
 
-# Labels and title
-plt.xlabel('Number of RTTs')
-plt.ylabel('Congestion Window Size (in segments)')
-plt.title('CWND vs Number of RTTs (TCP Reno vs. New Reno)')
-plt.legend()
+# # Labels and title
+# plt.xlabel('Number of RTTs')
+# plt.ylabel('Congestion Window Size (in segments)')
+# plt.title('CWND vs Number of RTTs (TCP Reno vs. New Reno)')
+# plt.legend()
 
-# Show the plot
-plt.grid(True)
-plt.show()
+# # Show the plot
+# plt.grid(True)
+# plt.show()
