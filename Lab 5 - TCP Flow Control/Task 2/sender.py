@@ -77,14 +77,14 @@ with open(FILENAME, 'rb') as file:
 
         print(f'Size of payload: {len(payload)}')
         send_seq = rcv_ack
-<<<<<<< HEAD
+
         send_ack = rcv_seq+1
         pkt = packet.make_pkt(PORT,dest_port,send_seq,send_ack,rcv_window,payload,1)
-=======
+
         send_ack = rcv_seq+len(rcv_payload)
         pkt = packet.make_pkt(PORT, dest_port, send_seq,
                               send_ack, rcv_window, payload, 1)
->>>>>>> 7b430789de8a842f2b1d8225df0f88ef83e7fcb7
+
         send_buffer[send_seq] = pkt
         client_sock.send(pkt)
         print(f'Sent packet with seq {send_seq} and ack {send_ack}')
@@ -150,7 +150,7 @@ with open(FILENAME, 'rb') as file:
         timeout_interval = getTimeoutInterval(est_RTT, dev_RTT)
         client_sock.settimeout(timeout_interval)
         print(
-            f'Estimated RTT: {est_RTT} \nDev RTT: {dev_RTT} \nTimeout Interval: {timeout_interval}')
+            f'SampleRTT: {sampleRTT}\nEstimated RTT: {est_RTT}\nDev RTT: {dev_RTT} \nTimeout Interval: {timeout_interval}')
 
         sampleRTT_file.write(f'{iteration},{round(sampleRTT*1000,4)}\n')
         estRTT_file.write(f'{iteration},{round(est_RTT*1000,4)}\n')
@@ -171,4 +171,4 @@ client_sock.close()
 server_sock.close()
 
 print('Done!')
-plot.get_line_plot()
+# plot.get_line_plot()

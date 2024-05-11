@@ -39,7 +39,6 @@ def upload(sock):
     sock.send(f'{len(response)}'.encode())
     sock.recv(1024).decode()
 
-
     total_size = len(response)
 
     with tqdm.tqdm(total=total_size,unit='B',unit_scale=True,unit_divisor=1024) as progress:

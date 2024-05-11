@@ -33,8 +33,8 @@ def upload(conn):
     print('Upload')
     conn.send('upload'.encode())
 
-    length = conn.recv(1024).decode()
-    conn.send('OK'.encode())
+    length = conn.recv(1024).decode() # 39 in client
+    conn.send('OK'.encode()) # 40 in client
 
     response = b''
     got_len=0
